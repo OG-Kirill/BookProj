@@ -1,0 +1,55 @@
+﻿<Page x:Class="BookMag.Pages.AdminPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BookMag.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminPage">
+
+    <Grid>
+        <ScrollViewer>
+            <StackPanel x:Name="main__stack">
+                <Border BorderBrush="Black">
+                    <StackPanel x:Name="cart">
+                        <TextBlock x:Name="count__cart" HorizontalAlignment="Center" MaxHeight="100px" TextWrapping="Wrap"></TextBlock>
+                        <TextBlock x:Name="price__cart" HorizontalAlignment="Center" MaxHeight="100px" TextWrapping="Wrap"></TextBlock>
+                        <TextBlock x:Name="discount__cart" HorizontalAlignment="Center" MaxHeight="100px" TextWrapping="Wrap"></TextBlock>
+                    </StackPanel>
+                </Border>
+                <StackPanel x:Name="DGstack" HorizontalAlignment="Center">
+                    <DataGrid Name="DG" AutoGenerateColumns="False" HorizontalAlignment="Left" CanUserAddRows="False" IsReadOnly="True" Width="600" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel Orientation="Horizontal">
+                                                <MediaElement Width="130" Height="130" Initialized="MediaElement_Initialized"/>
+                                            </StackPanel>
+                                            <StackPanel>
+                                                <StackPanel Width="470">
+                                                    <TextBlock Initialized="TextBlock_Initialized" HorizontalAlignment="Center" MaxHeight="100px" TextWrapping="Wrap" Margin="0 50 0 0"/>
+                                                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                                                        <TextBlock Initialized="autor_Initialized" HorizontalAlignment="Center" MaxHeight="100px" TextWrapping="Wrap" x:Name="autor"/>
+                                                        <TextBlock x:Name="Price" Initialized="Price_Initialized" HorizontalAlignment="Center" MaxHeight="100px" TextWrapping="Wrap"/>
+                                                        <TextBlock Initialized="nalichOnShop_Initialized" HorizontalAlignment="Center" MaxHeight="100px" TextWrapping="Wrap" x:Name="nalichOnShop"/>
+                                                        <TextBlock Initialized="nalichOnSklad_Initialized" HorizontalAlignment="Center" MaxHeight="100px" TextWrapping="Wrap" x:Name="nalichOnSklad"/>
+                                                    </StackPanel>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal" Margin="20 10 0 0">
+                                                    <Button Name="Add__book" Content="Заказать" Template="{Binding Source={StaticResource ResourceKey=Button_Template__AddNew}}" Margin="0 0 0 50" HorizontalAlignment="Center" Click="Add__book_Click" Initialized="Add__book_Initialized"/>
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
